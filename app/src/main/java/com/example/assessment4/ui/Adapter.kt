@@ -10,7 +10,7 @@ import com.example.assessment4.databinding.UserBinding
 import com.example.assessment4.model.User
 
 
-class Adapter(var userList:List<User>,var context:Context): RecyclerView.Adapter<UserViewHolder>() {
+class Adapter(var userList:List<User>,var context:Context): RecyclerView.Adapter<Adapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding= UserBinding.inflate(LayoutInflater.from(parent.context),parent,false)
@@ -20,12 +20,8 @@ class Adapter(var userList:List<User>,var context:Context): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        var newProduct = userList[position]
-        val binding = holder.binding
-        binding.tvId.text = newProduct.id.toString()
-        binding.tvTitle.text = newProduct.title
-
-
+        var newUser = userList.get(position)
+        holder.bindd(newUser)
 
 
     }
@@ -34,8 +30,20 @@ class Adapter(var userList:List<User>,var context:Context): RecyclerView.Adapter
     override fun getItemCount(): Int {
         return userList.size
     }
+    class UserViewHolder(var binding: UserBinding):RecyclerView.ViewHolder(binding.root){
+       fun bindd(newUser: User) {
+           binding.apply {
+
+               tvId.text=newUser.id.toString()
+               tvTitle.text=newUser.title
+               tvBody.text=newUser.body
+
+
+
+           }
+
+       }
+
+    }
 }
 
-class UserViewHolder(var binding: UserBinding):RecyclerView.ViewHolder(binding.root){
-
-}

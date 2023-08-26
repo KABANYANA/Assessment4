@@ -6,25 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.assessment4.model.User
 import kotlinx.coroutines.launch
 
-//class UserViewModel:ViewModel() {
-//
-//    val userRepo= UserRepository()
-//    val usersLiveData= MutableLiveData<List<User>>()
-//    val errLiveData= MutableLiveData<String>()
-//
-//
-//    fun fetchUsers() {
-//        viewModelScope.launch {
-//            var response= userRepo.getUsers()
-//
-//            if (response.isSuccessful){
-//                usersLiveData.postValue((response.body()?.users))
-//            }else{
-//                errLiveData.postValue((response.errorBody()?.string()))
-//            }
-//        }
-//    }
-//}
+
 class UserViewModel: ViewModel() {
 
     val userRepo = UserRepository()
@@ -36,12 +18,7 @@ class UserViewModel: ViewModel() {
             val response = userRepo.getUsers()
             println(response)
 
-//            if (response.isSuccessful) {
-//                val users = response.body()?.users
-//                usersLiveData.postValue(users)
-//            } else {
-//                errLiveData.postValue(response.errorBody()?.string())
-//            }
+
         }
     }
 }

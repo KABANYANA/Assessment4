@@ -1,6 +1,9 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id ("kotlin-kapt")
 }
 
 android {
@@ -50,8 +53,6 @@ dependencies {
     implementation ("com.google.android.material:material:1.9.0")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.picasso:picasso:2.8")
-    implementation ("jp.wasabeef:picasso-transformations:2.4.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     testImplementation( "junit:junit:4.13.2")
 
@@ -62,4 +63,5 @@ dependencies {
     implementation ("androidx.activity:activity-ktx:1.7.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.5")
     androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    kapt ("androidx.room:room-compiler:2.5.2")
 }
